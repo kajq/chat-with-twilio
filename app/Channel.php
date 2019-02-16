@@ -31,4 +31,11 @@ class Channel extends Model
                             ->channels
                             ->create(array("friendlyName" => $pChannelName));
     }
+
+    public function deleteChannel($id)
+    {
+        $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
+                 ->channels($id)
+                 ->delete();
+    }
 }

@@ -25,4 +25,12 @@ class ChannelController extends Controller
         $channels = $this->channel->getChannels();
         return view('channels.index', compact('channels'));
     }
+
+    public function deleteChannel(Request $request)
+    {
+        $id = $request->sid; 
+        $channels = $this->channel->deleteChannel($id);
+        $channels = $this->channel->getChannels();
+        return view('channels.index', compact('channels'));
+    }
 }
