@@ -14,6 +14,7 @@ class ChannelController extends Controller
 
     public function index()
     {
-        dd($this->channel->getChannels);
+        $channels = $this->channel->getChannels();
+        return view('channels.index', compact('channels'));
     }
 }

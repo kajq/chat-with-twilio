@@ -4,17 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\http\Request;
-use twilio\Rest\client as Twilio;
-
+use Twilio\Rest\Client;
 
 class Channel extends Model
 {
     function __construct()
     {
-        $this->TWILIO_ACCOUNT_SID   = env('TWILIO_ACCOUNT_SID');
-        $this->TWILIO_TOKEN         = env('TWILIO_TOKEN');
-        $this->TWILIO_SERVICE       = env('TWILIO_SERVICE');
-        $this->TWILIO               = new Twilio($this->TWILIO_ACCOUNT_SID, $this->TWILIO_TOKEN);
+        $this->TWILIO_ACCOUNT_SID   = 'AC43ef1f157f97056a8431b1e8dd9b6470'; // env('TWILIO_ACCOUNT_SID');
+        $this->TWILIO_TOKEN         = '5e96d1fda8437ecc7df1839218c20496';    //env('TWILIO_TOKEN');
+        $this->TWILIO_SERVICE       = 'IS8ff2da4c75fe481b87519e39a71ff068';// env('TWILIO_SERVICE');
+        $this->TWILIO               = new Client($this->TWILIO_ACCOUNT_SID, $this->TWILIO_TOKEN);
         
     }
 
