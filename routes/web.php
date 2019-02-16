@@ -10,10 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Rutas para crud de canales
 Route::get('/channel','ChannelController@index');
 Route::post('/channel/create', 'ChannelController@createChannel');
 Route::post('/channel/edit', 'ChannelController@editChannel');
 Route::post('/channel/update', 'ChannelController@updateChannel');
 Route::post('/channel/delete', 'ChannelController@deleteChannel');
-//Route::resource('/', 'ChannelController');
+
+//Rutas para el chat
+Route::get('/','ChatController@index');
