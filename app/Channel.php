@@ -32,10 +32,19 @@ class Channel extends Model
                             ->create(array("friendlyName" => $pChannelName));
     }
 
-    public function deleteChannel($id)
+    public function updateChannel($sid, $pChannelName){
+        $channel = $twilio->chat->v2->services($this->TWILIO_SERVICE)
+                            ->channels($sid)
+                            ->update(array(
+                                         "friendlyName" => $pChannelName
+                                     )
+                            );
+    }
+
+    public function deleteChannel($sid)
     {
         $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
-                 ->channels($id)
+                 ->channels($sid)
                  ->delete();
     }
 }
