@@ -29,13 +29,17 @@ class ChannelController extends Controller
     public function editChannel(Request $request)
     {
         $sid = $request->sid; 
-        return view('channels.edit', compact('channels'));
+        $channel = $this->channel->getChannel($sid);
+        return view('channels.edit', compact('channel'));
     }
 
     public function updateChannel(Request $request)
     {
         $sid = $request->sid;
         $channelname = $request->channelname;
+
+        $this->channel->updateChannel($sid, $channelname);
+        
         $channels = $this->channel->getChannels();
         return view('channels.index', compact('channels'));
     }

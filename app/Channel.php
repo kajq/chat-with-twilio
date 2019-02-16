@@ -26,6 +26,14 @@ class Channel extends Model
         return $channels;
     }
 
+    public function getChannel($sid){
+        $channel = $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
+                            ->channels($sid)
+                            ->fetch();
+
+        return $channel;
+    }
+
     public function postChannel($pChannelName){
         $channel = $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
                             ->channels
@@ -33,7 +41,7 @@ class Channel extends Model
     }
 
     public function updateChannel($sid, $pChannelName){
-        $channel = $twilio->chat->v2->services($this->TWILIO_SERVICE)
+        $channel = $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
                             ->channels($sid)
                             ->update(array(
                                          "friendlyName" => $pChannelName
