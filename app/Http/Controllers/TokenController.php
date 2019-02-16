@@ -48,10 +48,8 @@ class TokenController extends Controller
                             ->channels($record->sid)
                             ->fetch();
 
-            /*print($channel->friendlyName);
-            echo "; ";*/
+            print($channel->friendlyName);
+            echo "; ";
         }
-        
-        return view('channels.index', compact('channels','channel'));
     }
 }

@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/','ChannelController@index');
-Route::post('/create', 'ChannelController@createChannel');
-Route::post('/edit', 'ChannelController@editChannel');
-Route::post('/update', 'ChannelController@updateChannel');
-Route::post('/delete', 'ChannelController@deleteChannel');
+Route::get('/channel','ChannelController@index');
+Route::post('/channel/create', 'ChannelController@createChannel');
+Route::post('/channel/edit', 'ChannelController@editChannel');
+Route::post('/channel/update', 'ChannelController@updateChannel');
+Route::post('/channel/delete', 'ChannelController@deleteChannel');
 //Route::resource('/', 'ChannelController');

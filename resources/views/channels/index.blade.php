@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Channels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />    
     <script src="main.js"></script>
 </head>
 <body>
@@ -14,7 +13,7 @@
         <table>
             <thead>
                 <tr>
-                    <td>friendlyName</td>
+                    <td>Friendly Name</td>
                     <td>Edit</td>
                     <td>Delete</td>
                 <tr>
@@ -26,15 +25,14 @@
                             <a href='/channel/{{ $channel->sid }}'> {{ $channel->friendlyName }} </a>
                         </td>
                         <td>
-                            <form action="{{'/edit'}}" method = "POST">
+                            <form action="{{'/channel/edit'}}" method = "POST">
                                 {{ csrf_field()}}
                                 <button type="submit" class="btn btn-primary"  name="sid" value= "{{ $channel->sid }}" >Edit</button>                 
                             </form>
                         </td>
                         <td>
-                            <form method="POST" action="{{'/delete'}}">
+                            <form method="POST" action="{{'/channel/delete'}}">
                                 {{ csrf_field() }}
-                                
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary"  name="sid" value= "{{ $channel->sid }}" >Delete</button>                 
                                 </div>
@@ -46,10 +44,10 @@
         </table>
     </div>
 
-    <form action="{{('/create')}}"method = "post">
+    <form action="{{('/channel/create')}}"method = "post">
         {{ csrf_field()}}
         <label for="channelname">New Channel: </label>
-        <input type="text" name="channelname">
+        <input type="text" name="channelname" required>
         <button type="submit" class="btn btn-primary"  name="btnCreate" >Create</button>                 
     </form>
 </body>

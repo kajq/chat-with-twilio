@@ -9,12 +9,12 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form action="{{'/update'}}" method="post">
+    <form action="{{'/channel/update'}}" method="post">
         {{ csrf_field() }}
         <label for="oldname">Old Name: </label>
-        <input type="text" name="oldname" value="{{ $channel->friendlyName }}">
+        <input type="text" name="oldname" readonly value="{{ $channel->friendlyName }}">
         <label for="channelname">New Name Channel: </label>
-        <input type="text" name="channelname">
+        <input type="text" name="channelname" required>
         <button type="submit" class="btn btn-primary"  name="sid" value="{{ $channel->sid }}" >Editar</button>                 
     </form>
     
