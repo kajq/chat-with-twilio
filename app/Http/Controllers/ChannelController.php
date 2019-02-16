@@ -17,4 +17,12 @@ class ChannelController extends Controller
         $channels = $this->channel->getChannels();
         return view('channels.index', compact('channels'));
     }
+
+    public function createChannel(Request $request)
+    {
+        $channelname = $request->channelname; 
+        $channels = $this->channel->postChannel($channelname);
+        $channels = $this->channel->getChannels();
+        return view('channels.index', compact('channels'));
+    }
 }
