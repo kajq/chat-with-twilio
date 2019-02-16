@@ -3,19 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Chats</title>
+    <title>Room</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="main.js"></script>
 </head>
 <body>
-    <h4>Lista de canales</h4>
-    <ul>
-        @foreach ($channels as $channel)
-                <li>
-                    <a href="{{ '/chat/login/'.$channel->sid }} "> {{ $channel->friendlyName }} </a>
-                </li>
+    <div>
+        <label for="Chat">Chat: {{ $channel->friendlyName }} </label> <br>
+        <label for="Username">User: {{ $member->identity }} </label>
+        
+        <h4>Members List</h4>
+        @foreach ($members as $user)
+                    <li>{{ $user->identity }} </li>
         @endforeach
-    </ul>
+    </div>
 </body>
 </html>
