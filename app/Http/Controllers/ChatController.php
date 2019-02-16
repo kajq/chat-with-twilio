@@ -42,7 +42,6 @@ class ChatController extends Controller
         $sid = $request->sid; 
         $name = $request->name; 
         $exist = false;
-        $channel = $this->channel->getChannel($sid);
         $members = $this->chat->GetMembers($sid);
         //recorremos los usuarios del canal
         foreach ($members as $record) {
@@ -57,13 +56,21 @@ class ChatController extends Controller
         if ($exist == false){
             //si no lo encuentra creacmos el usuario
             $member = $this->chat->PostMember($sid, $name);
-        } else {
+            $id_member = $member->sid;
+        } /*else {
             //si lo encuentra obiente los datos del usuario
             $member = $this->chat->GetMember($sid, $id_member);
-        }
-        
-        //dd($member);
+        }*/
+            
+        return $this->chatroom($sid, $id_member);
+    }
 
-        return view('chat.room', compact('channel', 'members', 'member'));
+    public function chatroom($sid, $id_member){
+        $channel = $this->channel->getChannel($sid);
+        $members = $this->chat->GetMembers($sid);
+        $member = $this->chat->GetMember($sid, $id_member);
+        $messages = $this->chat->GetMessages($sid);
+            //dd($messages);
+        return view('chat.room', compact('channel', 'members', 'member', 'messages'));
     }
 }

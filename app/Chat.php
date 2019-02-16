@@ -38,4 +38,13 @@ class Chat extends Model
                            ->create($name);
         return $member;
     }
+
+    public function GetMessages($sid){
+        $messages = $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
+                             ->channels($sid)
+                             ->messages
+                             ->read();
+
+        return $messages;
+    }
 }
