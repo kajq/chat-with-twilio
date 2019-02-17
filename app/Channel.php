@@ -11,11 +11,18 @@ class Channel extends Model
     //Contructor carga las credenciales para conectarse al API de Twilio
     function __construct()
     {
-        $this->TWILIO_ACCOUNT_SID   = 'AC43ef1f157f97056a8431b1e8dd9b6470'; // env('TWILIO_ACCOUNT_SID');
-        $this->TWILIO_TOKEN         = '5e96d1fda8437ecc7df1839218c20496';    //env('TWILIO_TOKEN');
-        $this->TWILIO_SERVICE       = 'IS8ff2da4c75fe481b87519e39a71ff068';// env('TWILIO_SERVICE');
+        $this->TWILIO_ACCOUNT_SID   = 'AC43ef1f157f97056a8431b1e8dd9b6470';
+        $this->TWILIO_TOKEN         = '5e96d1fda8437ecc7df1839218c20496';  
         $this->twilio               = new Client($this->TWILIO_ACCOUNT_SID, $this->TWILIO_TOKEN);
-        
+        $this->TWILIO_SERVICE       = $this->GetService();
+    }
+    //Función que consulta el servicio
+    public function GetService(){
+        $services = $this->twilio->chat->v2->services
+                        ->read();
+        $service_id = $services[0]->sid;
+
+        return $service_id;
     }
     //Función para obtener todos los canales
     public function getChannels()

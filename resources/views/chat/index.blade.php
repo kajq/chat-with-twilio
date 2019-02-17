@@ -9,6 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
+    
     <h4>Lista de canales</h4>
     <ul>
         @foreach ($channels as $channel)

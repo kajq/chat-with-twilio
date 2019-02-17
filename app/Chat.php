@@ -8,13 +8,31 @@ use Twilio\Rest\Client;
 class Chat extends Model
 {
     //Contructor carga las credenciales para conectarse al API de Twilio
-    function __construct()
+    public function __construct()
     {
-        $this->TWILIO_ACCOUNT_SID   = 'AC43ef1f157f97056a8431b1e8dd9b6470'; // env('TWILIO_ACCOUNT_SID');
-        $this->TWILIO_TOKEN         = '5e96d1fda8437ecc7df1839218c20496';    //env('TWILIO_TOKEN');
-        $this->TWILIO_SERVICE       = 'IS8ff2da4c75fe481b87519e39a71ff068';// env('TWILIO_SERVICE');
+        $this->TWILIO_ACCOUNT_SID   = 'AC43ef1f157f97056a8431b1e8dd9b6470';
+        $this->TWILIO_TOKEN         = '5e96d1fda8437ecc7df1839218c20496';  
         $this->twilio               = new Client($this->TWILIO_ACCOUNT_SID, $this->TWILIO_TOKEN);
+        $this->TWILIO_SERVICE       = $this->GetService();
     }
+    //Función que consulta el servicio
+    public function GetService(){
+        $services = $this->twilio->chat->v2->services
+                        ->read();
+        if (count($services) < 1){
+            $service_id = $this->PostService();
+        } else {
+            $service_id = $services[0]->sid;
+        }
+        return $service_id;
+    }
+    //Función para crear un servicio en caso de que no exista uno
+    public function PostService(){
+        $service = $this->twilio->chat->v2->services
+                            ->create("ISW-713");
+        return $service->sid;
+    }
+
     //Función que retorna los miembros de un servicio
     public function GetMembers($sid){
         $members = $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
