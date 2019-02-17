@@ -47,4 +47,13 @@ class Chat extends Model
 
         return $messages;
     }
+
+    public function sendMessage($sid_channel, $id_member, $msj){
+        $message = $this->twilio->chat->v2->services($this->TWILIO_SERVICE)
+                            ->channels($sid_channel)
+                            ->messages
+                            ->create(array("body" => $msj,
+                                           "from" => $id_member));
+        return $message;
+    }
 }
