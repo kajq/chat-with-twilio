@@ -1,0 +1,759 @@
+{
+	"info": {
+		"_postman_id": "97dee6fa-62cb-44ee-be74-0437a9b051a4",
+		"name": "Twilio-Chat",
+		"description": "Colección para pruebas del proyecto de Twilio en ISW-713, Programación en ambiente Web 2.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List All Services",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services"
+					]
+				},
+				"description": "Lista los servicios\n"
+			},
+			"response": []
+		},
+		{
+			"name": "List All Channels",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels"
+					]
+				},
+				"description": "Lista de los canales del servicio"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Channel",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"friendly_name\": \"ISW-POst\",\n     \"created_by\": \"system\"\n}"
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels"
+					]
+				},
+				"description": "Crea un canal en el servicio"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a Channel",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH2235dc85e55d40ebac4b8bca2faf7b13",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH2235dc85e55d40ebac4b8bca2faf7b13"
+					]
+				},
+				"description": "Muestra la información del canal solicitado"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Channel",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "Channel{\n\t\"friendly_name\": \"NEW_FRIENDLY_NAME\",\n    \"created_by\": \"Keilor\"\n}"
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH2235dc85e55d40ebac4b8bca2faf7b13",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH2235dc85e55d40ebac4b8bca2faf7b13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Channel",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CHfcacf6db45f64ebe93e7d135d37e5c1a",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CHfcacf6db45f64ebe93e7d135d37e5c1a"
+					]
+				},
+				"description": "Borra un canal del servicio"
+			},
+			"response": []
+		},
+		{
+			"name": "List All Members",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH128f1e932988401992c8a88911b4877b/Members",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH128f1e932988401992c8a88911b4877b",
+						"Members"
+					]
+				},
+				"description": "Muestra todos los  miembros de un canal"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Member",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"identity\": \"IDENTITY\"\n}"
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH51ba43b2fd1b49aab96f3b1119bdc3fc/Members",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH51ba43b2fd1b49aab96f3b1119bdc3fc",
+						"Members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a Member",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH128f1e932988401992c8a88911b4877b/Members/MB8787617f05a8415a9ac46abeb3cca203",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH128f1e932988401992c8a88911b4877b",
+						"Members",
+						"MB8787617f05a8415a9ac46abeb3cca203"
+					]
+				},
+				"description": "Consulta un miembro del canal"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Member",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH128f1e932988401992c8a88911b4877b/Members/MBfd62882e02d34d4a90b9035d7b86fe9b",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH128f1e932988401992c8a88911b4877b",
+						"Members",
+						"MBfd62882e02d34d4a90b9035d7b86fe9b"
+					]
+				},
+				"description": "Elimina el miembro de un canal"
+			},
+			"response": []
+		},
+		{
+			"name": "List All Messages",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH128f1e932988401992c8a88911b4877b/Messages",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH128f1e932988401992c8a88911b4877b",
+						"Messages"
+					]
+				},
+				"description": "Muestra todos los mensajes de un canal"
+			},
+			"response": []
+		},
+		{
+			"name": "Send a Message",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"body\": \"Hi, desde postman\"\n}"
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CHa24ffe7e92a24687961998bc17165486/Messages",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CHa24ffe7e92a24687961998bc17165486",
+						"Messages"
+					]
+				},
+				"description": "ENvia un mensaje a un canal"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Message",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CHa24ffe7e92a24687961998bc17165486/Messages/IMa1dee42321e2461e815062254aab94d7",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CHa24ffe7e92a24687961998bc17165486",
+						"Messages",
+						"IMa1dee42321e2461e815062254aab94d7"
+					]
+				},
+				"description": "Elimina un mensaje enviado"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a Message",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH128f1e932988401992c8a88911b4877b/Messages/IMbcd3c29568dc48059542824cd18cd6b5",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH128f1e932988401992c8a88911b4877b",
+						"Messages",
+						"IMbcd3c29568dc48059542824cd18cd6b5"
+					]
+				},
+				"description": "Consulta un mensaje"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Message",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "\"from\"",
+							"value": "\"postman\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}/Channels/CH128f1e932988401992c8a88911b4877b/Messages/IM3547dab8abd14f5092c163b9446594e2",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}",
+						"Channels",
+						"CH128f1e932988401992c8a88911b4877b",
+						"Messages",
+						"IM3547dab8abd14f5092c163b9446594e2"
+					]
+				},
+				"description": "Actualiza parametros de un mensaje"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Service",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5e96d1fda8437ecc7df1839218c20496",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AC43ef1f157f97056a8431b1e8dd9b6470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://chat.twilio.com/v2/Services/{{Service_id}}",
+					"protocol": "https",
+					"host": [
+						"chat",
+						"twilio",
+						"com"
+					],
+					"path": [
+						"v2",
+						"Services",
+						"{{Service_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
