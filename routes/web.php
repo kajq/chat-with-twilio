@@ -12,6 +12,8 @@
 */
 //Rutas para crud de canales
 Route::get('/channel','ChannelController@index');
+Route::get('/channel/login','ChannelController@login');
+Route::post('/channel/validate_login','ChannelController@valide_user');
 Route::post('/channel/create', 'ChannelController@createChannel');
 Route::post('/channel/edit', 'ChannelController@editChannel');
 Route::post('/channel/update', 'ChannelController@updateChannel');

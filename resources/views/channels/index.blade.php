@@ -9,6 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <h4>User: {{ $username }}</h4>
     <div>
         <table>
             <thead>

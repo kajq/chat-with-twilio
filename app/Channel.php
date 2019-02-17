@@ -63,4 +63,13 @@ class Channel extends Model
                  ->channels($sid)
                  ->delete();
     }
+    //Funcion que valide los parametros del usuario
+    public function valide_user($username,$password)
+    {
+        if(($username == 'admin') && ($password == '123')){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

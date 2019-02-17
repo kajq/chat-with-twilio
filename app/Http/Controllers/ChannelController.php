@@ -13,9 +13,30 @@ class ChannelController extends Controller
     }
     //función inicial que pide los canales al modelo y carga la vista
     public function index()
+    {        
+        echo "Please login to enter this module";
+    }
+    //Función para mostrar login de administrador
+    public function login()
     {
-        $channels = $this->channel->getChannels();
-        return view('channels.index', compact('channels'));
+        $msj = null;
+        return view('channels.login', compact('msj'));
+    }
+    //Función para validar el login de administrador
+    public function valide_user(Request $request)
+    {
+        $username = $request->username;
+        $password = $request->password;
+        $valide = $this->channel->valide_user($username,$password);
+        if($valide == true){
+            $username;
+            $channels = $this->channel->getChannels();
+            return view('channels.index', compact('channels','username'));
+        } else {
+            $msj = "Error in the User or Password";
+            return view('channels.login', compact('msj'));
+        }
+        
     }
     //Función que pide crear un canal al modelo enviandole los parametros de un formulario en channels.index
     public function createChannel(Request $request)

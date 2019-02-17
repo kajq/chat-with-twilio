@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form action="{{'/channel'}}" method = "get">
+    <form action="{{'/channel/login'}}" method = "get">
         {{ csrf_field()}}
         <button type="submit" class="btn btn-primary"  name="sid">Admin channels</button>                 
     </form>
