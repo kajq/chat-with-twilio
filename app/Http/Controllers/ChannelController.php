@@ -31,6 +31,7 @@ class ChannelController extends Controller
         if($valide == true){
             $username;
             $channels = $this->channel->getChannels();
+            //dd($channels);
             return view('channels.index', compact('channels','username'));
         } else {
             $msj = "Error in the User or Password";

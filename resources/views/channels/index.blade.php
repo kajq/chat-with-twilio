@@ -9,21 +9,29 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h4>User: {{ $username }}</h4>
+    <h4>User: Admin</h4>
     <div>
         <table>
             <thead>
                 <tr>
-                    <td>Friendly Name</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td>Name</td>
+                    <td>Members</td>
+                    <td>Messages</td>
+                    <td></td>
+                    <td></td>
                 <tr>
             </thead>
             <tbody>
                 @foreach ($channels as $channel)
                     <tr>
                         <td>
-                            <a href='/channel/{{ $channel->sid }}'> {{ $channel->friendlyName }} </a>
+                            {{ $channel->friendlyName }}
+                        </td>
+                        <td>
+                            {{$channel->membersCount}}
+                        </td>
+                        <td>
+                            {{$channel->messagesCount}}
                         </td>
                         <td>
                             <form action="{{'/channel/edit'}}" method = "POST">

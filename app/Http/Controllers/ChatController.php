@@ -50,14 +50,6 @@ class ChatController extends Controller
             
         return $this->chatroom($sid, $id_member);
     }
-    //Función que creo que no hace nada
-   /* public function room($sid)
-    {   
-        $this->member = $this->chat->GetMember($sid); 
-        $channel = $this->channel->getChannel($sid);
-        $members = $this->chat->GetMembers($sid);
-        return view('chat.room', compact('channel', 'members', 'member'));
-    }*/
     //Función que carga la vista chat.room, lugar donde se ven los mensajes del canal y los miembros 
     public function chatroom($sid, $id_member){
         $channel = $this->channel->getChannel($sid);

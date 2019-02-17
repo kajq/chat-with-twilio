@@ -36,7 +36,7 @@
         @foreach ($messages as $msj)
         <tr>
             <td>{{ $msj->from }}</td>
-            <td>{{ $msj->dateCreated->format('d/m/Y H:i:s') }}</td>
+            <td>{{ $msj->dateCreated->format('d/m/Y H:i:s') }}</td> 
             <td>{{ $msj->body }}</td>
         </tr>           
         @endforeach
