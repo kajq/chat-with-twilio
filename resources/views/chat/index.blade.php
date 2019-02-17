@@ -9,9 +9,14 @@
     <script src="main.js"></script>
 </head>
 <body>
-    
+    <form action="{{'/channel'}}" method = "get">
+        {{ csrf_field()}}
+        <button type="submit" class="btn btn-primary"  name="sid">Admin channels</button>                 
+    </form>
     <h4>Lista de canales</h4>
     <ul>
+        @if(count($channels) < 1 ) <li>There are no channels available. Talk to an administrator</li>
+        @endif
         @foreach ($channels as $channel)
                 <li>
                     <a href="{{ '/chat/login/'.$channel->sid }} "> {{ $channel->friendlyName }} </a>

@@ -16,7 +16,11 @@
             {{ csrf_field() }}
             <input type="hidden" name="id_member" readonly value="{{ $member->sid }}">
             <button type="submit" class="btn btn-primary"  name="sid" value="{{ $channel->sid }}" >Refresh</button>                 
-        </form>        
+        </form>   
+        <form action="{{'/'}}" method = "get">
+            {{ csrf_field()}}
+            <button type="submit" class="btn btn-primary" >Finish</button>                 
+        </form>     
         <h4>Members List</h4>
         @foreach ($members as $user)
                     <li>{{ $user->identity }} </li> 

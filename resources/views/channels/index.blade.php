@@ -50,5 +50,9 @@
         <input type="text" name="channelname" required>
         <button type="submit" class="btn btn-primary"  name="btnCreate" >Create</button>                 
     </form>
+    <form action="{{'/'}}" method = "get">
+        {{ csrf_field()}}
+        <button type="submit" class="btn btn-primary" >Finish</button>                 
+    </form>
 </body>
 </html>

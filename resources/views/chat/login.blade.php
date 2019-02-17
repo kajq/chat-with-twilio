@@ -16,7 +16,8 @@
         <input type="text" name="name" required>
         <button type="submit" class="btn btn-primary" name="sid" value="{{ $channel->sid }}">Agregar</button>                 
     </form>
-    <form action="{{'/chat'}}" method="post">
+    <form action="{{'/'}}" method="get">
+        {{ csrf_field()}}
         <button type="submit" class="btn btn-primary" >Cancelar</button>                 
     </form>
 </body>
