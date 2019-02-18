@@ -13,6 +13,21 @@
     <div class="mx-auto" style="width: 700px;">
     <h4>Manage channels</h4>
         <table class="table">
+            @if($channel <> null)
+                <tr>
+                    <form action="{{'/channel/update'}}" method="post">
+                        {{ csrf_field() }}
+                        <td><label for="channelname">Edit Name: </label></td>
+                        <td><input type="text" name="channelname" value="{{ $channel->friendlyName }}"></td>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-primary"  name="sid" value="{{ $channel->sid }}" >Apply</button></td>                 
+                    </form>
+                    <form action="{{'/channel/views'}}" method = "get">
+                        {{ csrf_field()}}
+                        <td><button type="submit" class="btn btn-danger" >Cancel</button></td>
+                    </form>
+                </tr>
+            @else
             <tr>
                 <form action="{{('/channel/create')}}"method = "post">
                     {{ csrf_field()}}
@@ -26,6 +41,7 @@
                     <td><button type="submit" class="btn btn-danger" >Finish</button></td>
                 </form>
             </tr>
+            @endif
                 <tr>
                     <th scope="row">Name</th>
                     <th scope="row">Members</th>
@@ -34,6 +50,12 @@
                     <td></td>
                 <tr>
             <tbody>
+                <tr>
+                    <td>
+                    @if(count($channels) < 1 ) <tr><td colspan =2>There are no channels available</td></tr>
+                    @endif
+                    </td>
+                </tr>
                 @foreach ($channels as $channel)
                     <tr>
                         <td>
