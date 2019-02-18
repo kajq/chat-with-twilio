@@ -18,6 +18,8 @@ class ChatController extends Controller
     public function index()
     {
         $channels = $this->channel->getChannels();
+        
+        //dd($channels);
         return view('chat.index', compact('channels'));
     }
     //Función utilizada cuando el usuario intenta ingresar a un chat, redirije la vista a un formulario de login

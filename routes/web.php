@@ -21,8 +21,10 @@ Route::post('/channel/delete', 'ChannelController@deleteChannel');
 
 //Rutas para el chat
 Route::get('/','ChatController@index');
-Route::post('/chat','ChatController@refrech');
+Route::post('/chat','ChatController@refrech'); //Route::resource('posts','PostController');
 Route::get('/chat/login/{sid}','ChatController@login');
 Route::get('/chat/{sid}','ChatController@room');
-Route::post('/chat/valide_user', 'ChatController@valide_user');
+Route::post('/chat/valide_user', 'ChatController@valide_user');//Route::get('my-posts', 'PostController@myPosts');
 Route::post('/chat/room','ChatController@sendmessage');
+
+
